@@ -8,6 +8,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.mirhoseini.marvel.ApplicationContext;
 import com.mirhoseini.marvel.R;
 import com.mirhoseini.marvel.database.model.CharacterModel;
 
@@ -28,7 +29,7 @@ public class DatabaseHelperImpl extends OrmLiteSqliteOpenHelper implements Datab
     private Dao<CharacterModel, Integer> characterDao;
 
     @Inject
-    public DatabaseHelperImpl(Context context) {
+    public DatabaseHelperImpl(@ApplicationContext Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 

@@ -1,4 +1,4 @@
-package com.mirhoseini.marvel.activity;
+package com.mirhoseini.marvel.splash;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 
 import com.mirhoseini.marvel.ApplicationComponent;
+import com.mirhoseini.marvel.ApplicationContext;
 import com.mirhoseini.marvel.MarvelApplication;
 import com.mirhoseini.marvel.R;
 import com.mirhoseini.marvel.base.BaseActivity;
+import com.mirhoseini.marvel.main.MainActivity;
 import com.mirhoseini.marvel.util.AppConstants;
 
 import javax.inject.Inject;
@@ -24,7 +26,8 @@ public class SplashActivity extends BaseActivity {
 
     // injecting dependencies via Dagger
     @Inject
-    Context context;
+    @ApplicationContext
+    Context applicationContext;
 
     // Thread to process splash screen events
     private Thread splashThread;
@@ -54,7 +57,7 @@ public class SplashActivity extends BaseActivity {
 
                 // Open MainActivity
                 Intent mainActivityIntent = new Intent();
-                mainActivityIntent.setClass(context, MainActivity.class);
+                mainActivityIntent.setClass(applicationContext, MainActivity.class);
                 startActivity(mainActivityIntent);
             }
         };

@@ -1,7 +1,6 @@
-package com.mirhoseini.marvel.domain;
+package com.mirhoseini.marvel.domain.client;
 
 import com.google.gson.Gson;
-import com.mirhoseini.marvel.domain.client.MarvelApi;
 
 import javax.inject.Singleton;
 

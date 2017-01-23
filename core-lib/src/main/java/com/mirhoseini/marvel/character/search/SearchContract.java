@@ -4,7 +4,6 @@ import com.mirhoseini.marvel.base.BaseInteractor;
 import com.mirhoseini.marvel.base.BasePresenter;
 import com.mirhoseini.marvel.base.BaseView;
 import com.mirhoseini.marvel.database.model.CharacterModel;
-import com.mirhoseini.marvel.domain.model.CharactersResponse;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ interface SearchContract {
 
     interface Presenter extends BasePresenter<View> {
 
-        void doSearch(boolean isConnected, String query, long timestamp);
+        void doSearch(String query, long timestamp);
 
         boolean isQueryValid(String query);
 

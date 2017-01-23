@@ -15,7 +15,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.SQLException;
-import java.util.Collections;
 
 import rx.Observable;
 import rx.observers.TestSubscriber;

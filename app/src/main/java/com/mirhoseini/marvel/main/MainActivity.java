@@ -1,4 +1,4 @@
-package com.mirhoseini.marvel.activity;
+package com.mirhoseini.marvel.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.mirhoseini.marvel.ActivityContext;
 import com.mirhoseini.marvel.ApplicationComponent;
+import com.mirhoseini.marvel.ApplicationContext;
 import com.mirhoseini.marvel.MarvelApplication;
 import com.mirhoseini.marvel.R;
 import com.mirhoseini.marvel.base.BaseActivity;
+import com.mirhoseini.marvel.character.CharacterActivity;
 import com.mirhoseini.marvel.character.cache.CacheFragment;
 import com.mirhoseini.marvel.character.search.SearchFragment;
 import com.mirhoseini.marvel.database.model.CharacterModel;
@@ -26,9 +29,8 @@ import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
 
 /**
- * Created by Mohsen on 20/10/2016.
+ * Application Main Activity.
  */
-
 public class MainActivity extends BaseActivity {
 
     public static final String TAG_SEARCH_FRAGMENT = "search_fragment";
@@ -36,15 +38,21 @@ public class MainActivity extends BaseActivity {
 
     // injecting dependencies via Dagger
     @Inject
-    Context context;
+    @ApplicationContext
+    Context applicationContext;
+
+    @Inject
+    @ActivityContext
+    Context activityContext;
 
     // injecting views via ButterKnife
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    CompositeSubscription subscriptions;
+    private CompositeSubscription subscriptions;
     private SearchFragment searchFragment;
     private CacheFragment cacheFragment;
+    private MainModule module;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +79,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void injectDependencies(MarvelApplication application, ApplicationComponent component) {
-        component.inject(this);
+        module = new MainModule(this);
+
+        component
+                .plus(module)
+                .inject(this);
     }
 
     private void setupToolbar() {
@@ -113,7 +125,7 @@ public class MainActivity extends BaseActivity {
     public void showMessage(String message) {
         Timber.d("Showing Message: %s", message);
 
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show();
     }
 
     public void showOfflineMessage(boolean isCritical) {

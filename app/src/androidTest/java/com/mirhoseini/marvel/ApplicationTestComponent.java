@@ -2,8 +2,8 @@ package com.mirhoseini.marvel;
 
 import com.mirhoseini.marvel.activity.MainActivityTest;
 import com.mirhoseini.marvel.database.DatabaseModule;
-import com.mirhoseini.marvel.domain.ApiModule;
-import com.mirhoseini.marvel.domain.ClientModule;
+import com.mirhoseini.marvel.domain.client.ApiModule;
+import com.mirhoseini.marvel.domain.client.ClientModule;
 
 import javax.inject.Singleton;
 

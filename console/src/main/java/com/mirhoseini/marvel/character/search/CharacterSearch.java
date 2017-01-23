@@ -23,7 +23,7 @@ public class CharacterSearch implements SearchContract.View {
     }
 
     public void doSearch(String query) {
-        presenter.doSearch(true, query, System.currentTimeMillis() / 1000);
+        presenter.doSearch(query, System.currentTimeMillis() / 1000);
     }
 
     @Override

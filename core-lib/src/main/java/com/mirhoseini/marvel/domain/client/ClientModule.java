@@ -1,4 +1,4 @@
-package com.mirhoseini.marvel.domain;
+package com.mirhoseini.marvel.domain.client;
 
 import com.mirhoseini.marvel.util.StateManager;
 

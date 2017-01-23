@@ -5,8 +5,6 @@ import com.mirhoseini.marvel.database.model.CharacterModel;
 import java.sql.SQLException;
 import java.util.List;
 
-import rx.Subscription;
-
 /**
  * Created by Mohsen on 20/10/2016.
  */

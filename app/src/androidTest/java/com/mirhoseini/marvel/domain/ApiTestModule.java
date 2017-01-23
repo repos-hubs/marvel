@@ -1,5 +1,6 @@
 package com.mirhoseini.marvel.domain;
 
+import com.mirhoseini.marvel.domain.client.ApiModule;
 import com.mirhoseini.marvel.domain.client.MarvelApi;
 
 import retrofit2.Retrofit;

@@ -1,4 +1,4 @@
-package com.mirhoseini.marvel.activity;
+package com.mirhoseini.marvel.character;
 
 import android.content.Context;
 import android.content.Intent;
